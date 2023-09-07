@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home.index');
+})->name('home');
+
+Route::post('/url-store', [\App\Http\Controllers\UrlController::class, 'store'])->name('url.store');
+Route::get('/{id}', [\App\Http\Controllers\RedirectController::class, 'index']);
